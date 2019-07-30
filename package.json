@@ -1,0 +1,30 @@
+{
+  "name": "blockota",
+  "version": "1.0.0",
+  "description": "OTA Firmware updates for commercial IoT devices over Ethereum blockchain platform and Inter Planetary File-System.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "Compile": "truffle compile",
+    "Migrate": "truffle migrate",
+    "Test": "truffle test",
+    "run": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paltrickontpb/BlockWare.git"
+  },
+  "author": "paltrickontpb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paltrickontpb/BlockWare/issues"
+  },
+  "homepage": "https://github.com/paltrickontpb/BlockWare#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "ipfs-api": "^26.1.2"
+  }
+}
