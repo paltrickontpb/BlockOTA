@@ -4585,10 +4585,16 @@
       "links": {},
       "address": "0x6Db0d715b94F4179E44415b35899900dA981725c",
       "transactionHash": "0x63a5d24c70b6bb8043d0c59213f4df873d03030eaca9b671cfb52395c62b0f7d"
+    },
+    "1564659588924": {
+      "events": {},
+      "links": {},
+      "address": "0xb40bF25E983f7463e5A37a9aB44Fc6fb8FC7008e",
+      "transactionHash": "0x57a92a18526d1aeb759ea9a64a1fcb323b91a41bc2979484ecd8ec5d1c95c636"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-01T09:55:01.378Z",
+  "updatedAt": "2019-08-01T11:41:33.251Z",
   "devdoc": {
     "methods": {}
   },
