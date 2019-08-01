@@ -1,14 +1,14 @@
 pragma solidity >=0.4.22 <0.6.0;
 
 contract blockOTA{
-    uint[] public incrementalVersion;
+    uint[] private incrementalVersion;
     string[] public firmwareMetadata;
     
-    uint public checksumType;
+    uint private checksumType;
     string[] private oemKey;
-    string [] public firmwareIpfsAddress;
+    string [] private firmwareIpfsAddress;
     
-    address owner;
+    address private owner;
     bool jamSig;
     
     event newFirmware(string ipfsLink);
@@ -36,7 +36,7 @@ contract blockOTA{
         jamSig = false;
     }
     
-    function firmwareUpload(uint _firmwareversion, string memory _metadata, uint _checksum, string memory _oem, string memory _ipfsadd ) onlyAuth
+    function firmwareUpload(uint _firmwareversion, string memory _metadata, uint _checksum, string memory _oem, string memory _ipfsadd ) jamState onlyAuth
     public returns(bool, string memory){
         incrementalVersion.push(_firmwareversion);
         firmwareMetadata.push(_metadata);
@@ -51,19 +51,25 @@ contract blockOTA{
         }
     }
     
-    function checkVersion() public view
+    function checkVersion() jamState public view
     returns(uint){
         return incrementalVersion[incrementalVersion.length-1];
     }
     
-    function pairOem(string memory _oemkey) public
+    function pairOem(string memory _oemkey) jamState public view
     returns(bool){
-        string memory currentOem = oemKey[oemKey.length-2];
+        string memory currentOem = oemKey[oemKey.length-1];
         if(keccak256(abi.encodePacked((_oemkey)))==keccak256(abi.encodePacked((currentOem)))){
             return true;
         } else {
             return false;
         }
+    }
+    
+    function getFirmware(string memory oemDev) jamState public view
+    returns(string memory){
+        require(keccak256(abi.encodePacked((oemDev))) == keccak256(abi.encodePacked((oemKey[oemKey.length-1]))));
+        return firmwareIpfsAddress[firmwareIpfsAddress.length-1];
     }
     
 }
