@@ -38,13 +38,13 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Firmware Version is required">
 					<span class="label-input100">Firmware Version</span>
-					<input class="input100" type="text" name="version" placeholder="Enter Incremental Firmware Number">
+					<input class="input100" id="fv" type="text" name="version" placeholder="Enter Incremental Firmware Number">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Enter Firmware Metadata">
 					<span class="label-input100">Firmware Metadata</span>
-					<input class="input100" type="text" name="metadata" placeholder="Enter Firmware Metadata">
+					<input class="input100" id="md" type="text" name="metadata" placeholder="Enter Firmware Metadata">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -64,9 +64,15 @@
 
 				<div class="wrap-input100 validate-input" data-validate = "Key is required">
 					<span class="label-input100">OEM Key</span>
-					<input type="text" class="input100" name="oemkey" placeholder="OEM KEY"></input>
+					<input type="text" id="oemk" class="input100" name="oemkey" placeholder="OEM KEY"></input>
 					<span class="focus-input100"></span>
 				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Enter IPFS Address">
+						<span class="label-input100">IPFS Address</span>
+						<input class="input100" id="ipfsad" type="text" name="metadata" placeholder="Enter IPFS Address">
+						<span class="focus-input100"></span>
+					</div>
 
 				<div class="file-upload">
 					<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Firmware</button>
@@ -88,7 +94,7 @@
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
+						<button class="contact100-form-btn" onclick="startData()">
 							<span>
 								Submit
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -125,9 +131,39 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
+	<script src="js/index.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/uploader.js"></script>
+	<script src="js/app.js"></script>
 	<script src="js/web3.min.js"></script>
+
+	<script>
+		async function startUpload(){
+			var ipfsData = await uploadIPFS;
+			console.log(ipfsData);
+		}
+
+		function startData(){
+			var fv = $('#fv').val();
+			var md = $('#md').val();
+			var cs = 1;
+			var oemk = $('#oemk').val();
+			var ipfsad = $('#ipfsad').val();
+
+			pushToEth(fv,md,cs,oemk,ipfsad);
+		}
+		
+		if(typeof web3 !== 'undefined') {
+    		console.log("Unlock MetaMask");
+    		web3 = new Web3(web3.currentProvider);
+		}
+			else {
+    		console.log("Install MetaMask");
+			web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+			
+			web3.eth.defaultAccount=web3.eth.accounts[0];
+}
+	</script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
