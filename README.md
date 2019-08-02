@@ -9,8 +9,8 @@ Presenting BlockOTA, an Ethereum based smart dapp which manages the OTA firmware
 
 ## Requirements
 
-Design Pattern Choices - [Link](../blob/master/design.md)  
-Avoiding Common Attacks - [Link](../blob/master/common-attacks.md)  
+Design Pattern Choices - [Link](../master/design.md)  
+Avoiding Common Attacks - [Link](../master/common-attacks.md)  
 Deployed Address - 0x604b0de21f2e2f8628dc4f55e87f329094cdfcdf (ropsten)  
 ETHPM Implementation - May not be possible for given implementation
 
