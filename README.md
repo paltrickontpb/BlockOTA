@@ -1,5 +1,5 @@
 # BlockOTA 
-[![Build Status](https://travis-ci.org/paltrickontpb/BlockOTA.svg?branch=master)](https://travis-ci.org/paltrickontpb/BlockOTA)
+[![Build Status](https://travis-ci.org/paltrickontpb/BlockOTA.svg?branch=master)](https://travis-ci.org/paltrickontpb/BlockOTA)  
 OTA Firmware updates for commercial IoT devices over Ethereum blockchain platform and Inter Planetary File-System. 
 
 ## Introduction
@@ -9,10 +9,10 @@ Presenting BlockOTA, an Ethereum based smart dapp which manages the OTA firmware
 
 ## Requirements
 
-Design Pattern Choices - [Link](../blob/master/design.md)
-Avoiding Common Attacks - [Link](../blob/master/common-attacks.md)
-Deployed Address - 0x604b0de21f2e2f8628dc4f55e87f329094cdfcdf (ropsten)
-ETHPM Implementation - May not be possible for given implementation.
+Design Pattern Choices - [Link](../blob/master/design.md)  
+Avoiding Common Attacks - [Link](../blob/master/common-attacks.md)  
+Deployed Address - 0x604b0de21f2e2f8628dc4f55e87f329094cdfcdf (ropsten)  
+ETHPM Implementation - May not be possible for given implementation
 
 ## Setup and Test Procedure
 ### Install dependancies 
